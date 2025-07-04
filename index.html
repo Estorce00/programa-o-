@@ -12,6 +12,93 @@
         font-family: serif;
       }
 
+      }
+      #loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: linear-gradient(
+          to right,
+          #000000 0%,
+           #131381 30%,
+          #3057d8 50%,
+           #131381 70%,
+           #000000 100% );
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .loader {
+        position: relative;
+        width: 150px;
+        height: 250px;
+        animation: rotacionar 5s linear infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @keyframes rotacionar {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .loader span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(calc(30deg * var(--i)));
+      }
+
+      .loader span::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.162);
+      }
+
+      .loader span:nth-of-type(3n + 3)::before {
+        background: #2600fd;
+        box-shadow: 0 0 10px rgb(255, 255, 255), 0 0 10px rgb(255, 255, 255),
+          0 0 10px rgb(255, 255, 255), 0 0 10px rgb(255, 255, 255),
+          0 0 100px rgb(255, 255, 255), 0 0 100px rgb(255, 255, 255);
+        animation: animarQuadrado 1.6s linear infinite;
+        transform-origin: 125px;
+      }
+
+      @keyframes animarQuadrado {
+        0%,
+        25% {
+          transform: rotate(10deg);
+        }
+
+        75%,
+        100% {
+          transform: rotate(180deg);
+        }
+      }
+
+      #loading p {
+        position: absolute;
+        font-size: 1.2em;
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        text-shadow: 0 0 0px rgb(228, 224, 224), 0 0 8px rgb(255, 255, 255),
+          0 0 40px white, 0 0 88px rgb(255, 255, 255), 0 0 55px white;
+      }
       body {
         background: linear-gradient(to right, #000 2%, #3c0174 , #000 ) ;
       }
@@ -156,6 +243,24 @@
     </style>
   </head>
   <body>
+    <div id="loading">
+      <div class="loader">
+        <span style="--i: 1"></span>
+        <span style="--i: 2"></span>
+        <span style="--i: 3"></span>
+        <span style="--i: 4"></span>
+        <span style="--i: 5"></span>
+        <span style="--i: 6"></span>
+        <span style="--i: 7"></span>
+        <span style="--i: 8"></span>
+        <span style="--i: 9"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 11"></span>
+        <span style="--i: 12"></span>
+      </div>
+      <p><b>carregando...</b></p>
+       </div>
+    <div id="site-content">
     <header>
       <nav>
         <ul>
@@ -163,8 +268,11 @@
           <li><a href="outro.html">voce sabe o que é html?</a></li>
         </ul>
       </nav>
-      <img src="foto-ubunto/php-new.png" width="580px" height="380px" alt="php-new">
     </header>
+    </div>
+    <div class="foto">
+      <img rc="foto-ubunto/php-new.png" width="580px" height="380px" alt="php-new">
+    </div>
     <div class="caixa-direta">
       <h1>VOCE SABE O QUE É O PHP ?</h1>
       <div class="feedback">
@@ -181,5 +289,14 @@
         </h2>
       </div>
     </div>
+    <!-- Script para esconder a tela de carregamento -->
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("site-content").style.display = "block";
+        }, 40000); // 15000 milissegundos = 15 segundos
+      });
+    </script>
   </body>
 </html>
