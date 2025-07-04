@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona o PHP</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: serif;
+    }
+    body {
+        background: linear-gradient(to right, #000 2%, #3c0174 , #000 ) ;
+        overflow: hidden;
+    }
+    nav ul {
+        position: relative;
+        margin: 20px;
+        padding: 20px;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+    }
+    nav ul li a {
+        color: rgb(255, 255, 255);
+        margin: 10px;
+        text-decoration: none;
+    }
+    nav ul li a:hover {
+        color: #000000;
+    }
+
+    .caixa-direta {
+        background-color: transparent;
+        width: 550px;
+        height: 400px;
+        margin: 150px;
+        padding: 10px;
+        margin-bottom: 10px;
+        top: 50px;
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+    }
+
+    .feedback {
+        overflow-y: auto;
+        max-height: 280px;
+        padding-right: 20px;
+        border-radius: 20px;
+        color: white;
+        font-family: serif;
+        font-size: 15px;
+        line-height: 1.6;
+        width: 110%;
+    }
+
+    .feedback::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    h1 {
+        position: relative;
+        top: -88px;
+        display: flex;
+        color: white;
+        height: 100px;
+    }
+
+    h2 {
+        color: white;
+        height: 200x;
+        position: relative;
+        margin-bottom: 80px;
+    }
+    h3 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1px;
+        font-size: 25px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">O que é PHP</a></li>
+                <li><a href="outro.html">O que é HTML</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="foto">
+          <img src="Php-foto/foto-php.png" height="500px" width="550px" >
+    </div>
+    <div class="caixa-direta">
+      <h1>COMO FUNCIONA O PHP ?</h1>
+      <div class="feedback">
+        <h3>
+          <strong><i>• PHP • </i></strong>
+        </h3>
+        <h2>
+           <pre><code>
+              &lt;?php<br>
+              &nbsp;&nbsp;$nome = "Miguel";<br>
+              &nbsp;&nbsp;echo "&lt;h1&gt;Bem-vindo, $nome!&lt;/h1&gt;";<br>
+              ?&gt;
+           </code></pre>
+             Esse código vai gerar isso: Bem-vindo, Miguel!
+        </h2>
+        <h2>
+            <pre><code>
+                &lt;?php<br>
+                &nbsp;&nbsp;$pergunta = "Qual é a sua linguagem favorita?";<br> 
+                &nbsp;&nbsp;echo "&lt;h1&gt;$pergunta&lt;/h1&gt;";<br>
+                ?&gt;
+            </code></pre>
+            Esse código vai gerar isso:
+            Qual é a sua linguagem favorita?
+        </h2>
+        <h2>
+            <pre><code>
+                &lt;?php
+                $pergunta = "Você gosta de programação?";
+                echo "&lt;h1&gt;$pergunta&lt;/h1&gt;";
+                ?&gt;
+            </code></pre>
+            Esse código vai gerar isso:
+            Você gosta de programação?
+        </h2>
+        <h2>
+            <pre><code>
+                &lt;?php echo "Qual o seu editor favorito?"; ?&gt;
+            </code></pre>
+            Esse código vai gerar isso:
+            Qual o seu editor favorito?
+        </h2>
+      </div>
+    </div>
+</body>
+</html>
